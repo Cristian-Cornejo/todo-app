@@ -1,16 +1,23 @@
 <template>
   <div class="bg" :class="{ 'bg-dark': isDarkTheme }"></div>
   <div class="back-section" :class="{ dark: isDarkTheme }"></div>
-  <Todo />
+  <div class="container">
+    <div class="header">
+      <Todo />
+      <ThemeIcon />
+    </div>
+  </div>
 </template>
 
 <script>
 import Todo from "./components/todo.vue";
+import ThemeIcon from "./components/themeIcon.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "App",
   components: {
     Todo,
+    ThemeIcon,
   },
   computed: {
     ...mapGetters(["isDarkTheme"]),
@@ -22,8 +29,11 @@ export default {
 
 :root {
   font-family: "Josefin Sans", sans-serif;
+  --header: hsl(0, 0%, 98%);
   --primary: hsl(0, 0%, 98%);
-  --secondary: hsl(236, 33%, 92%);
+  --primary-soft: hsl(236, 33%, 92%);
+  --secondary: hsl(235, 21%, 11%);
+  --secondary-soft: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(233, 11%, 84%);
   --dark-grayish-blue: hsl(236, 9%, 61%);
   --very-dark-grayish-blue: hsl(235, 19%, 35%);
@@ -34,12 +44,22 @@ export default {
 
 .dark {
   --primary: hsl(235, 21%, 11%);
-  --secondary: hsl(235, 24%, 19%);
+  --primary-soft: hsl(235, 24%, 19%);
+  --secondary: hsl(0, 0%, 98%);
+  --secondary-soft: hsl(236, 33%, 92%);
+  --secondary: hsl(235, 21%, 11%);
+  --secondary-soft: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(234, 39%, 85%);
   --light-grayish-blue-hover: hsl(236, 33%, 92%);
   --dark-grayish-blue: hsl(234, 11%, 52%);
   --very-dark-grayish-blue: hsl(233, 14%, 35%);
   /* --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);*/
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1.4rem 1.4rem;
 }
 
 .back-section {
@@ -66,6 +86,11 @@ export default {
   background-image: url("~@/assets/bg-mobile-dark.jpg");
 }
 
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -83,17 +108,9 @@ export default {
   .container {
     max-width: 720px;
   }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
+  .header {
+    font-size: 1.6rem;
+    margin-top: 4rem;
   }
 }
 
