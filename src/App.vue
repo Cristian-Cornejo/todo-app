@@ -6,18 +6,23 @@
       <Todo />
       <ThemeIcon />
     </div>
+    <div class="main-section">
+      <CreateInput />
+    </div>
   </div>
 </template>
 
 <script>
 import Todo from "./components/todo.vue";
 import ThemeIcon from "./components/themeIcon.vue";
+import CreateInput from "./components/createInput.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "App",
   components: {
     Todo,
     ThemeIcon,
+    CreateInput,
   },
   computed: {
     ...mapGetters(["isDarkTheme"]),
@@ -30,8 +35,8 @@ export default {
 :root {
   font-family: "Josefin Sans", sans-serif;
   --header: hsl(0, 0%, 98%);
-  --primary: hsl(0, 0%, 98%);
-  --primary-soft: hsl(236, 33%, 92%);
+  --primary: hsl(236, 33%, 92%);
+  --primary-soft: hsl(0, 0%, 98%);
   --secondary: hsl(235, 21%, 11%);
   --secondary-soft: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(233, 11%, 84%);
@@ -47,19 +52,25 @@ export default {
   --primary-soft: hsl(235, 24%, 19%);
   --secondary: hsl(0, 0%, 98%);
   --secondary-soft: hsl(236, 33%, 92%);
-  --secondary: hsl(235, 21%, 11%);
-  --secondary-soft: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(234, 39%, 85%);
   --light-grayish-blue-hover: hsl(236, 33%, 92%);
   --dark-grayish-blue: hsl(234, 11%, 52%);
   --very-dark-grayish-blue: hsl(233, 14%, 35%);
   /* --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);*/
 }
+
+.main-section {
+  margin: 0 1.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 1.4rem 1.4rem;
+  margin: 1.4rem 1.4rem 0.4rem;
 }
 
 .back-section {
