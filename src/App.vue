@@ -8,6 +8,7 @@
     </div>
     <div class="main-section">
       <CreateInput />
+      <TodoList />
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@
 import Todo from "./components/todo.vue";
 import ThemeIcon from "./components/themeIcon.vue";
 import CreateInput from "./components/createInput.vue";
+import TodoList from "./components/todoList.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "App",
@@ -23,6 +25,7 @@ export default {
     Todo,
     ThemeIcon,
     CreateInput,
+    TodoList,
   },
   computed: {
     ...mapGetters(["isDarkTheme"]),
@@ -91,6 +94,7 @@ export default {
   background-image: url("~@/assets/bg-mobile-light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  transition: all 0.2s;
 }
 
 .bg.bg-dark {
