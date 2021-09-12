@@ -9,6 +9,7 @@
     <div class="main-section">
       <CreateInput />
       <TodoList />
+      <ListFilters />
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ import Todo from "./components/todo.vue";
 import ThemeIcon from "./components/themeIcon.vue";
 import CreateInput from "./components/createInput.vue";
 import TodoList from "./components/todoList.vue";
+import ListFilters from "./components/listFilters.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "App",
@@ -26,6 +28,7 @@ export default {
     ThemeIcon,
     CreateInput,
     TodoList,
+    ListFilters,
   },
   computed: {
     ...mapGetters(["isDarkTheme"]),

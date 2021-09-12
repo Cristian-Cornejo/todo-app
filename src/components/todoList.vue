@@ -4,7 +4,7 @@
       <li v-for="(todo, index) in todos" :key="index">
         <div class="todo" :class="{ checked: todo.isCompleted }">
           <button
-            @click="toogleComplete(index)"
+            @click="toogleComplete(todo.task)"
             class="check"
             :class="{ 'check-background': todo.isCompleted }"
           >
@@ -26,7 +26,7 @@
             {{ todo.task }}
           </p>
           <svg
-            @click="deleteTodo(index)"
+            @click="deleteTodo(todo.task)"
             class="cross"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
