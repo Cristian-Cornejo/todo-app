@@ -1,15 +1,20 @@
 import { createStore } from 'vuex'
 import { addIfNotExist, removeTask, toggleCompleted } from "../utils/utils"
 
+const getFromLocalStorage = () => {
+  if (localStorage.getItem('state')) {
+    return JSON.parse(localStorage.getItem('state'));
+  }
+  return null;
+}
 
-function initialState() {
+const initialState = () => {
   return {
     isDarkTheme: true,
     todos: [
       { task: "Jog around the park 3x", isCompleted: false },
       { task: "10 minutes meditation", isCompleted: false },
       { task: "Read for 1hour", isCompleted: false }],
-    filteredTodos: [],
     filterOptions: {
       allSelected: true,
       activeSelected: false,
@@ -19,7 +24,7 @@ function initialState() {
 }
 
 export default createStore({
-  state: initialState,
+  state: getFromLocalStorage() || initialState,
   mutations: {
     toogleTheme: state => state.isDarkTheme = !state.isDarkTheme,
     createTodo: (state, todo) => state.todos = addIfNotExist(state.todos, todo),
@@ -52,6 +57,9 @@ export default createStore({
     itemsLeft: state => state.todos.filter(t => t.isCompleted === false).length
   },
   actions: {
+    addToLocalStorage({ state }) {
+      localStorage.setItem('state', JSON.stringify(state));
+    },
     changeFilter({ commit }, option) {
       commit("changeFilter", option);
     },

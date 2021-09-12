@@ -20,7 +20,8 @@ import ThemeIcon from "./components/themeIcon.vue";
 import CreateInput from "./components/createInput.vue";
 import TodoList from "./components/todoList.vue";
 import ListFilters from "./components/listFilters.vue";
-import { mapGetters } from "vuex";
+import { useStore } from "vuex";
+import { computed, watch } from "vue";
 export default {
   name: "App",
   components: {
@@ -30,8 +31,23 @@ export default {
     TodoList,
     ListFilters,
   },
-  computed: {
-    ...mapGetters(["isDarkTheme"]),
+  setup() {
+    const store = useStore();
+    const isDarkTheme = computed(() => store.getters.isDarkTheme);
+    watch(
+      () => [
+        store.state.isDarkTheme,
+        store.state.todos,
+        store.state.filterOptions,
+      ],
+      function () {
+        store.dispatch({ type: "addToLocalStorage" });
+      }
+    );
+
+    return {
+      isDarkTheme,
+    };
   },
 };
 </script>
