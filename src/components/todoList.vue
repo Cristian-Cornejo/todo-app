@@ -40,6 +40,10 @@
           </svg>
         </div>
       </li>
+      <li class="status">
+        <p>{{ itemsLeft }} items left</p>
+        <button @click="clearCompleted">Clear Completed</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -48,10 +52,10 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "TodoList",
   computed: {
-    ...mapGetters(["isDarkTheme", "todos"]),
+    ...mapGetters(["isDarkTheme", "todos", "itemsLeft"]),
   },
   methods: {
-    ...mapActions(["toogleComplete", "deleteTodo"]),
+    ...mapActions(["toogleComplete", "deleteTodo", "clearCompleted"]),
   },
 };
 </script>
@@ -67,6 +71,19 @@ export default {
   background-color: var(--primary-soft);
   align-items: center;
   font-size: 0.8rem;
+}
+
+.todo-list li.status {
+  color: var(--dark-grayish-blue);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.status button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--dark-grayish-blue);
 }
 
 .todo-list li:first-child {

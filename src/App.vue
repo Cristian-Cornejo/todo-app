@@ -44,7 +44,7 @@ export default {
   --secondary-soft: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(233, 11%, 84%);
   --dark-grayish-blue: hsl(236, 9%, 61%);
-  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+  --very-dark-grayish-blue: hsl(233, 11%, 84%);
   --bright-blue: hsl(220, 98%, 61%);
   --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
   font-size: 18px;
