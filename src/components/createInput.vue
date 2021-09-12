@@ -24,7 +24,6 @@ export default {
       const { todo } = Object.fromEntries(new FormData(e.target));
       this.createTodo(todo);
       this.$refs.createTodoForm.reset();
-      console.log(todo);
     },
   },
 };
