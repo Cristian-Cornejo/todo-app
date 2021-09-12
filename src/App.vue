@@ -1,17 +1,18 @@
 <template>
-  <div class="bg" :class="{ 'bg-dark': isDarkTheme }"></div>
-  <div class="back-section" :class="{ dark: isDarkTheme }"></div>
-  <div class="container">
-    <div class="header">
-      <Todo />
-      <ThemeIcon />
-    </div>
-    <div class="main-section">
-      <CreateInput />
-      <TodoList />
-      <ListFilters />
+  <div class="back-section" :class="{ dark: isDarkTheme }">
+    <div class="container">
+      <div class="header">
+        <Todo />
+        <ThemeIcon />
+      </div>
+      <div class="main-section">
+        <CreateInput />
+        <TodoList />
+        <ListFilters />
+      </div>
     </div>
   </div>
+  <div class="bg" :class="{ 'bg-dark': isDarkTheme }"></div>
 </template>
 
 <script>
@@ -96,9 +97,6 @@ export default {
 }
 
 .back-section {
-  position: absolute;
-  z-index: -2;
-  top: 0;
   width: 100%;
   height: 100%;
   background-color: var(--primary);
@@ -107,7 +105,7 @@ export default {
 .bg {
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   height: 200px;
   background-image: url("~@/assets/bg-mobile-light.jpg");
@@ -121,8 +119,11 @@ export default {
 }
 
 .container {
+  z-index: 1;
+  position: relative;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 3rem;
 }
 
 .main-section > *:not(:first-child) {
