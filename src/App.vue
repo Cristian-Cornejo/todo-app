@@ -106,6 +106,10 @@ export default {
   margin-left: auto;
 }
 
+.main-section > *:not(:first-child) {
+  margin-top: 1rem;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

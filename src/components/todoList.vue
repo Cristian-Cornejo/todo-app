@@ -63,7 +63,10 @@ export default {
 .todo-list ul {
   padding-inline-start: 0;
   list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
+
 .todo-list li {
   padding: 0.3rem 1rem;
   color: var(--secondary);
@@ -88,7 +91,6 @@ export default {
 
 .todo-list li:first-child {
   border-radius: 6px 6px 0 0;
-  margin-top: 1rem;
 }
 
 .todo-list li:not(:last-child) {
