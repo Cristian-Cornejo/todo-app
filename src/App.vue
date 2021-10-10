@@ -1,15 +1,14 @@
 <template>
-  <div class="back-section" :class="{ dark: isDarkTheme }">
-    <div class="container">
-      <div class="header">
-        <Todo />
-        <ThemeIcon />
-      </div>
-      <div class="main-section">
-        <CreateInput />
-        <TodoList />
-        <ListFilters />
-      </div>
+  <div class="back-section" :class="{ dark: isDarkTheme }"></div>
+  <div class="container">
+    <div class="header">
+      <Todo />
+      <ThemeIcon />
+    </div>
+    <div class="main-section">
+      <CreateInput />
+      <TodoList />
+      <ListFilters />
     </div>
   </div>
   <div class="bg" :class="{ 'bg-dark': isDarkTheme }"></div>
@@ -97,8 +96,10 @@ export default {
 }
 
 .back-section {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: var(--primary);
 }
 
@@ -153,6 +154,10 @@ export default {
   }
 }
 
+#app {
+  min-height: 100%;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -165,7 +170,8 @@ export default {
 
 html {
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
 }
 
 /* Sections
@@ -177,6 +183,7 @@ html {
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 /**
